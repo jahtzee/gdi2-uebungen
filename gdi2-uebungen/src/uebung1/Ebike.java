@@ -6,7 +6,7 @@ public class Ebike extends Vehicle{
 	double power; // in percent
 	
 	//constructor declaration
-	public Ebike(String designation, int tires, double power) {
+	public Ebike(String designation, double power) {
 		super(designation, 2, 25); //2 tires, 25 space cost
 		this.power = validatePower(power);
 	}

@@ -13,7 +13,7 @@ public class Person {
 	double parkingSpaces; // 1 parking space = 100 units of space
 	
 	//constructor declaration
-	public Person(String name, int id, Vehicle[] myVehicles, double parkingSpaces) {
+	public Person(String name, Vehicle[] myVehicles, double parkingSpaces) {
 		this.id = nextId;
 		nextId++;
 		this.name = name;
@@ -30,8 +30,9 @@ public class Person {
 	
 	public boolean buyVehicle(Vehicle acquisition) {
 		if (this.getFreeSpace() >= acquisition.spaceCost) {
-			Vehicle[] tmp = new Vehicle[this.myVehicles.length+1];
-			for (int i = 0; i < tmp.length; i++) {
+			int length = this.myVehicles.length;
+			Vehicle[] tmp = new Vehicle[length + 1];
+			for (int i = 0; i < length; i++) {
 				tmp[i] = this.myVehicles[i];
 				tmp[this.myVehicles.length] = acquisition;
 			}

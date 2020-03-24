@@ -7,7 +7,7 @@ public class Car extends Vehicle{
 	double fuel; // in liters
 	
 	//constructor declaration
-	public Car(String designation, int tires, String licensePlate, double fuel) {
+	public Car(String designation, String licensePlate, double fuel) {
 		super(designation, 4, 100); //4 tires, 100 space cost
 		this.licensePlate = licensePlate;
 		this.fuel = fuel;
