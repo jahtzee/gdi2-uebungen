@@ -2,7 +2,7 @@ package uebung1_2;
 
 public class Coordinates {
 	//instance variables
-	private int id;
+	//private int id;
 	private int x;
 	private int y;
 	
@@ -10,7 +10,7 @@ public class Coordinates {
 	public Coordinates(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.id = Integer.valueOf(x + "" + y);
+		//this.id = Integer.valueOf(x + "" + y);
 	}
 	
 	//get set 
@@ -30,9 +30,9 @@ public class Coordinates {
 		this.y = y;
 	}
 
-	public int getId() {
-		return id;
-	}
+//	public int getId() {
+//		return id;
+//	}
 	
 	//methods
 }

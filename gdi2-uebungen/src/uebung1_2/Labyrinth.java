@@ -44,7 +44,15 @@ public class Labyrinth {
 	}
 	
 	public void generateWalls(int wallAmount) {
-		
+		for (int i = 0; i < wallAmount; i++) {
+			Coordinates pair = generateCoordinatePair(this.x, this.y);
+			
+			while (this.plan[pair.getY()][pair.getX()] == FILLED) {
+				pair = generateCoordinatePair(this.x, this.y);
+			}
+			
+			this.plan[pair.getY()][pair.getX()] = FILLED;
+		}
 	}
 	
 	public String getPlanAsString() {

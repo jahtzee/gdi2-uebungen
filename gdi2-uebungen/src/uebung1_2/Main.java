@@ -4,7 +4,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		Labyrinth l = new Labyrinth(10, 10); //x, y = dimensions
-		l.generateWallsSimple(10);
+//		l.generateWallsSimple(10);
+		l.generateWalls(99);
 		l.print();
 	}
 
