@@ -14,6 +14,7 @@ public class Main {
 		horst.printVehicles();
 		horstCar.checkRange();
 		horstBike.checkRange();
+		System.out.println(horstBike.getTires());
 	}
 
 }

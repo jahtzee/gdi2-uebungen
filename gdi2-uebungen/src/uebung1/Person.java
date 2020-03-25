@@ -7,19 +7,37 @@ public class Person {
 	static int nextId = 10000;
 	
 	//instance variables
-	String name;
-	int id;
-	Vehicle[] myVehicles;
-	double parkingSpaces; // 1 parking space = 100 units of space
+	private String name;
+	private int id;
+	private Vehicle[] myVehicles;
+	private double parkingSpaces; // 1 parking space = 100 units of space
 	
 	//constructor declaration
 	public Person(String name, Vehicle[] myVehicles, double parkingSpaces) {
-		this.id = nextId;
+		this.setId(nextId);
 		nextId++;
-		this.name = name;
+		this.setName(name);
 		this.myVehicles = myVehicles;
 		this.parkingSpaces = parkingSpaces;
 	}
+	
+	//get set
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 	//methods
 	public void printVehicles() {
@@ -29,7 +47,7 @@ public class Person {
 	}
 	
 	public boolean buyVehicle(Vehicle acquisition) {
-		if (this.getFreeSpace() >= acquisition.spaceCost) {
+		if (this.getFreeSpace() >= acquisition.getSpaceCost()) {
 			int length = this.myVehicles.length;
 			Vehicle[] tmp = new Vehicle[length + 1];
 			for (int i = 0; i < length; i++) {
@@ -47,7 +65,7 @@ public class Person {
 		double totalSpace = this.parkingSpaces * 100;
 		double usedSpace = 0;
 		for (Vehicle currentVehicle : this.myVehicles) {
-			usedSpace += currentVehicle.spaceCost;
+			usedSpace += currentVehicle.getSpaceCost();
 		}
 		return totalSpace - usedSpace;
 	}

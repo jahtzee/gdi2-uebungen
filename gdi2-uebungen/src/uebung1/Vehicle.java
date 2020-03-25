@@ -4,15 +4,32 @@ package uebung1;
 
 public abstract class Vehicle {
 	//instance variables
-	String designation;
-	int tires;
-	double spaceCost;
+	private String designation;
+	private int tires;
+	private double spaceCost;
 	
 	//constructor declaration
 	public Vehicle(String designation, int tires, double spaceCost) {
 		this.designation = designation;
-		this.tires = tires;
+		this.setTires(tires);
 		this.spaceCost = spaceCost;
+	}
+	
+	//get set
+	public double getSpaceCost() {
+		return this.spaceCost;
+	}
+	
+	public String getDesignation() {
+		return this.designation;
+	}
+	
+	public int getTires() {
+		return tires;
+	}
+
+	public void setTires(int tires) {
+		this.tires = tires;
 	}
 	
 	//methods

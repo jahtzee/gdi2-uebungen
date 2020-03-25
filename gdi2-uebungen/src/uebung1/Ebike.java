@@ -3,7 +3,7 @@ package uebung1;
 public class Ebike extends Vehicle{
 	
 	//instance variables
-	double power; // in percent
+	private double power; // in percent
 	
 	//constructor declaration
 	public Ebike(String designation, double power) {
@@ -23,7 +23,7 @@ public class Ebike extends Vehicle{
 	}
 	
 	public String toString() {
-		return(this.designation + ", " + this.power);
+		return(this.getDesignation() + ", " + this.power);
 	}
 	
 	@Override

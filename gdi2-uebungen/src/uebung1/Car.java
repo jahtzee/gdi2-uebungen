@@ -3,8 +3,8 @@ package uebung1;
 public class Car extends Vehicle{
 	
 	//instance variables
-	String licensePlate;
-	double fuel; // in liters
+	private String licensePlate;
+	private double fuel; // in liters
 	
 	//constructor declaration
 	public Car(String designation, String licensePlate, double fuel) {
@@ -15,7 +15,7 @@ public class Car extends Vehicle{
 	
 	//methods
 	public String toString() {
-		return(this.designation + ", " + this.licensePlate + ", " + this.fuel);
+		return(this.getDesignation() + ", " + this.licensePlate + ", " + this.fuel);
 	}
 	
 	@Override
