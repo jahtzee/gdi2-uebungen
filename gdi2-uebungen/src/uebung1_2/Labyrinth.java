@@ -1,6 +1,7 @@
 package uebung1_2;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Labyrinth {
 	//class variables
@@ -36,7 +37,10 @@ public class Labyrinth {
 	}
 	
 	public void generateWallsSimple(int wallAmount) {
-		
+		for (int i = 1; i <= wallAmount; i++) {
+			Coordinates pair = generateCoordinatePair(this.x, this.y);
+			this.plan[pair.getY()][pair.getX()] = FILLED;
+		}
 	}
 	
 	public void generateWalls(int wallAmount) {
@@ -45,5 +49,15 @@ public class Labyrinth {
 	
 	public String getPlanAsString() {
 		return Arrays.deepToString(plan);
+	}
+	
+	private Coordinates generateCoordinatePair(int maxX, int maxY) {
+		Random random = new Random();
+		
+		int x = random.nextInt(maxX);
+		int y = random.nextInt(maxY);
+		
+		Coordinates pair = new Coordinates(x, y);
+		return pair;
 	}
 }
