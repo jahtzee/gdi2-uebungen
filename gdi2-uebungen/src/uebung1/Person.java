@@ -4,7 +4,7 @@ package uebung1;
 
 public class Person {
 	//class variables
-	static int nextId = 10000;
+	private static int nextId = 10000;
 	
 	//instance variables
 	private String name;
