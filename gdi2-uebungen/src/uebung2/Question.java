@@ -10,10 +10,19 @@ public class Question {
 	private int id;
 	
 	public Question(String question, String[] answers, int correctAnswerNr) {
-		this.setQuestion(question);
-		this.setAnswers(answers);
-		this.setCorrectAnswerNr(correctAnswerNr);
-		this.setId(lastId);
+		this.question = question;
+		this.answers = answers;
+		this.correctAnswerNr = correctAnswerNr;
+		this.id = lastId;
+		lastId++;
+	}
+	
+	public Question(String line) {
+		String[] data = line.split(";");
+		this.question = data[0];
+		this.answers = new String[] {data[1], data[2], data[3]};
+		this.correctAnswerNr = Integer.parseInt(data[4]);
+		this.id = lastId;
 		lastId++;
 	}
 

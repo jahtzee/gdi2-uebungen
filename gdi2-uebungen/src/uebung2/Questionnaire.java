@@ -8,7 +8,8 @@ public class Questionnaire {
 	private Question[] questions;
 	private int amount;
 	private String path;
-
+	Scanner sc = new Scanner(System.in);
+	
 	public Questionnaire(int amount, String path) {
 		this.amount = amount;
 		this.path = path;
@@ -23,20 +24,12 @@ public class Questionnaire {
 
 	public void recordQuestion() {
 
-		Scanner sc = new Scanner(System.in);
 		String[] answers = new String[3];
 		String question = "";
 		int answer = 0;
 
 		System.out.println("Fragenkatalog Generator :\r\n" + "---------------------------------------\r\n"
-				+ "1. Frage - Bitte Fragetext eingeben :\r\n" + "---------------------------------------\r\n");
-		
-		//DEBUG
-		if (!sc.hasNextLine()){
-			System.err.println("There is no next line!");
-		}
-		//DEBUG
-		
+				+ "1. Frage - Bitte Fragetext eingeben :\r\n" + "---------------------------------------");
 		question = sc.nextLine();
 		System.out.println("1. Antwortmoeglichkeit eingeben :");
 		answers[0] = sc.nextLine();
@@ -55,15 +48,13 @@ public class Questionnaire {
 				break;
 			}
 		}
-
-		sc.close();
 	}
 
 	public void saveQuestionnaire() throws IOException {
 		File f = new File(path);
 		PrintWriter pWriter = new PrintWriter(f);
 		for (Question question : this.questions) {
-			pWriter.print(question + "\n\r");
+			pWriter.print(question + "\r\n");
 		}
 		pWriter.flush();
 		pWriter.close();
