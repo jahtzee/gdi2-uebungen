@@ -57,4 +57,23 @@ public class Quiz {
 			}
 		}
 	}
+	
+	public void results() {
+		int count = 0;
+		int points = 0;
+		System.out.print("-------------------------------------\r\n" + 
+				"GDI II Quiz - Auswertung\r\n" + 
+				"-------------------------------------");
+		for (Question q : questions) {
+			System.out.print("\r\nFrage " + ++count + " : " + q.getQuestion() + "\r\n"
+					+ "Korrekte Antwort: " + q.getAnswers()[q.getCorrectAnswerNr()-1] + "\r\n"
+					+ "Gegebene Antwort: " + q.getAnswers()[Integer.parseInt(this.givenAnswers[count-1])-1] + "\r\n"
+					+ "-------------------------------------");
+			if (q.getCorrectAnswerNr() == Integer.parseInt(this.givenAnswers[count-1])) {
+				points++;
+			}
+		}
+		System.out.println("\r\nRichtige Antworten : " + points + "\r\n"
+				+ "Falsche Antworten : " + (this.questionAmount-points));
+	}
 }
