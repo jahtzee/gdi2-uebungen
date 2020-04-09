@@ -26,21 +26,59 @@ public class Komponente {
 	}
 
 	public boolean enthaeltKnoten(Knoten k) {
-		for (Knoten aktuellerKnoten : this.knoten) {
-			if (k.getName() == aktuellerKnoten.getName()) {
+		int i = 0;
+		while (this.knoten[i] != null && i < this.knoten.length) {
+			if (k.getName() == this.knoten[i].getName()) {
 				return true;
 			}
+			i++;
 		}
 		return false;
+
+	}
+	
+	public boolean enthaeltKanten(Kante k) {
+		int i = 0;
+		while (this.kanten[i] != null && i < this.kanten.length) {
+			if (this.kanten[i].equals(k)) {
+				return true;
+			}
+			i++;
+		}
+		return false;
+
 	}
 
 	public void verschmelzeMit(Komponente ko, Kante ka) {
 		for (Knoten neuerKnoten : ko.knoten) {
-			this.knoten[anz_knoten++] = neuerKnoten;
+			if (neuerKnoten != null && !(this.enthaeltKnoten(neuerKnoten))) {
+				this.knoten[anz_knoten] = neuerKnoten;
+				anz_knoten++;
+			}
 		}
 		for (Kante neueKante : ko.kanten) {
-			this.kanten[anz_kanten++] = neueKante;
+			if (neueKante != null && !(this.enthaeltKanten(neueKante))) {
+				this.kanten[anz_kanten] = neueKante;
+				anz_kanten++;
+			}
 		}
-		this.kanten[anz_kanten++] = ka;
+		if (!(this.enthaeltKanten(ka))) {
+			this.kanten[anz_kanten] = ka;
+			anz_kanten++;
+		}
+	}
+	
+	public Kante[] getKanten() {
+		return this.kanten;
+	}
+	
+	public int getKostenSumme() {
+		int summe = 0;
+		for (Kante kante : this.kanten) {
+			if (kante != null) {
+				summe += kante.getKosten();
+			}
+		}
+		return summe;
 	}
 }

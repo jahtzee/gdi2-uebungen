@@ -19,23 +19,58 @@ public class Kruskal {
 		knoten[4] = new Knoten("KA");
 
 		// TODO : Lies Kanten von Datei ein - maximal MAX_KANTEN
-		kanten[0] = new Kante(knoten[0], knoten[3], 40);
-		kanten[1] = new Kante(knoten[0], knoten[1], 50);
-		kanten[2] = new Kante(knoten[4], knoten[2], 55);
-		kanten[3] = new Kante(knoten[3], knoten[1], 70);
+		kanten[0] = new Kante(knoten[1], knoten[2], 1);
+		kanten[1] = new Kante(knoten[0], knoten[3], 40);
+		kanten[2] = new Kante(knoten[0], knoten[1], 50);
+		kanten[3] = new Kante(knoten[4], knoten[2], 55);
+		kanten[4] = new Kante(knoten[3], knoten[1], 70);
+		kanten[5] = new Kante(knoten[1], knoten[4], 75);
+
 
 		// Komponenten anlegen - zu Beginn eine je Knoten
 		for (int i = 0; i < 5; i++) {
-			komponenten[i] = new Komponente(MAX_KNOTEN, MAX_KANTEN, knoten[0]);
+			komponenten[i] = new Komponente(MAX_KNOTEN, MAX_KANTEN, knoten[i]);
 		}
 
-		// TODO: Algorithmus ausfuehren
-		// Für jede Kante: In welcher Komponente befinden sich die Knoten? Über Komponenten drüberlaufen und für start und ende jeweils testen, ob sie in der komponente vorkommen.
-		// Falls für beide ein true zurückkommt, ist nichts zu tun. falls einer von beiden true liefert, ist die komponente zu finden, in der der andere knoten vorkommt und dann die verschmelze methode aufrufen.
+		// Algorithmus ausfuehren
 		int knr = 0;
 		while (kanten[knr] != null) {
-			// TODO
+			for (Komponente startKomponente : komponenten) {
+				if (startKomponente != null && startKomponente.enthaeltKnoten(kanten[knr].getStart())) {
+					if (!(startKomponente.enthaeltKnoten(kanten[knr].getZiel()))) {
+						for (Komponente zielKomponente : komponenten) {
+							if (zielKomponente != null && zielKomponente.enthaeltKnoten(kanten[knr].getZiel())) {
+								startKomponente.verschmelzeMit(zielKomponente, kanten[knr]);
+							}
+						}
+					}
+				}
+			}
+			knr++;
 		}
+		
+		for (Komponente komponente : komponenten) {
+			System.out.println("================");
+			System.out.println(komponente);
+		}
+		
+		int indexKorrekt = 0;
+		int index = 0;
+		for (Komponente komponente : komponenten) {
+			if (komponente != null) {
+				boolean alleKnotenVorhanden = true;
+				for (Knoten aktuellerKnoten : knoten) {
+					if (aktuellerKnoten != null && !(komponente.enthaeltKnoten(aktuellerKnoten))) {
+						alleKnotenVorhanden = false;
+					}
+				}
+				if (alleKnotenVorhanden == true && komponente.getKostenSumme() < komponenten[indexKorrekt].getKostenSumme()) {
+					indexKorrekt = index;
+				}
+			}
+			index++;
+		}
+		System.out.println("Ergebnis:   " + komponenten[indexKorrekt]);
 	}
 
 }
