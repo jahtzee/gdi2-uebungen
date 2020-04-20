@@ -5,11 +5,9 @@ public class petshop {
 	public static void main(String[] args) {
 		int value = 120;
 		int centValue = value*100;
-		
 		int mouseValue = 50;
 		int hamsterValue = 200;
 		int turtleValue = 1500;
-		
 		int result;
 		
 		for (int x = 1; x < 99; x++) {
