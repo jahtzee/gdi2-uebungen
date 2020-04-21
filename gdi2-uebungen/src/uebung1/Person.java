@@ -1,5 +1,7 @@
 package uebung1;
 
+import java.util.ArrayList;
+
 //class declaration
 
 public class Person {
@@ -9,11 +11,12 @@ public class Person {
 	//instance variables
 	private String name;
 	private int id;
-	private Vehicle[] myVehicles;
+	//private Vehicle[] myVehicles;
+	private ArrayList<Vehicle> myVehicles;
 	private double parkingSpaces; // 1 parking space = 100 units of space
 	
 	//constructor declaration
-	public Person(String name, Vehicle[] myVehicles, double parkingSpaces) {
+	public Person(String name, ArrayList<Vehicle> myVehicles, double parkingSpaces) {
 		this.setId(nextId);
 		nextId++;
 		this.setName(name);
@@ -48,13 +51,14 @@ public class Person {
 	
 	public boolean buyVehicle(Vehicle acquisition) {
 		if (this.getFreeSpace() >= acquisition.getSpaceCost()) {
-			int length = this.myVehicles.length;
-			Vehicle[] tmp = new Vehicle[length + 1];
-			for (int i = 0; i < length; i++) {
-				tmp[i] = this.myVehicles[i];
-				tmp[this.myVehicles.length] = acquisition;
-			}
-			this.myVehicles = tmp;
+//			int length = this.myVehicles.size();
+//			Vehicle[] tmp = new Vehicle[length + 1];
+//			for (int i = 0; i < length; i++) {
+//				tmp[i] = this.myVehicles[i];
+//				tmp[this.myVehicles.length] = acquisition;
+//			}
+//			this.myVehicles = tmp;
+			this.myVehicles.add(acquisition);
 			return true;
 		} else {
 			return false;
