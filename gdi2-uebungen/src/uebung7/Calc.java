@@ -3,11 +3,22 @@ package uebung7;
 public class Calc {
 	
 	public static void main(String[] args) throws InterruptedException {
-		int start = 1;
-		int end = 1000;
+		int start = 49;
+		int end = 64;
+		
+		if (Math.floor(Math.sqrt(end)) - Math.ceil(Math.sqrt(start))+1 == 0) {
+			System.out.println("Keine Quadratzahlen in diesem Bereich.");
+			return;
+		}
+		
+		if (start == end) {
+			System.out.println("Es muss ein Bereich angegeben werden.");
+			return;
+		}
+		
 		int[] evenQuadratics = null;
 		int[] oddQuadratics = null;
-		int[] allQuadratics = new int[100];
+		int[] allQuadratics = new int[(int) (Math.floor(Math.sqrt(end)) - Math.ceil(Math.sqrt(start))+1)];
 		int sum;
 		
 		QuadraticsCalculator even = new QuadraticsCalculator(start, end, true);
@@ -20,11 +31,15 @@ public class Calc {
 		evenQuadratics = even.getQuadraticsAsArray();
 		oddQuadratics = odd.getQuadraticsAsArray();
 		
-		System.arraycopy(evenQuadratics, 0, allQuadratics, 0, 50);
-		System.arraycopy(oddQuadratics, 0, allQuadratics, 49, 50);
+		System.arraycopy(evenQuadratics, 0, allQuadratics, 0, allQuadratics.length/2);
+		if (allQuadratics.length%2 == 0) {
+			System.arraycopy(oddQuadratics, 0, allQuadratics, allQuadratics.length/2, (allQuadratics.length/2));
+		} else {
+			System.arraycopy(oddQuadratics, 0, allQuadratics, allQuadratics.length/2, (allQuadratics.length/2)+1);
+		}
 		
-		PartialArraySum sum1 = new PartialArraySum(allQuadratics, 0, 49);
-		PartialArraySum sum2 = new PartialArraySum(allQuadratics, 50, 99);
+		PartialArraySum sum1 = new PartialArraySum(allQuadratics, 0, allQuadratics.length/2);
+		PartialArraySum sum2 = new PartialArraySum(allQuadratics, (allQuadratics.length/2)+1, allQuadratics.length-1);
 		sum1.start();
 		sum2.start();
 		sum1.join();
