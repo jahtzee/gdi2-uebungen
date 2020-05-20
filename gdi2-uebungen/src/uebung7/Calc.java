@@ -3,8 +3,8 @@ package uebung7;
 public class Calc {
 	
 	public static void main(String[] args) throws InterruptedException {
-		int start = 49;
-		int end = 64;
+		int start = 1;
+		int end = 1000;
 		
 		if (Math.floor(Math.sqrt(end)) - Math.ceil(Math.sqrt(start))+1 == 0) {
 			System.out.println("Keine Quadratzahlen in diesem Bereich.");

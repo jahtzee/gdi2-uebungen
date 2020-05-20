@@ -21,8 +21,9 @@ public class QuadraticsCalculator extends Thread{
 		int i = 0;
 		while (true) {
 			if (n%2 == remainder) {
-				if (n*n <= end && n*n >= start) {
-					quadratics[i++] = n*n;
+				int product = n*n;
+				if (product <= end && product >= start) {
+					quadratics[i++] = product;
 				} else {
 					if (n*n >= end)
 					break;
