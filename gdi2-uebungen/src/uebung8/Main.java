@@ -7,7 +7,7 @@ public class Main {
 		BankKunde andre = new BankKunde(" Andre ", gemeinschaftsKonto);
 		BankKunde mathias = new BankKunde(" Mathias ", gemeinschaftsKonto);
 		
-		while (gemeinschaftsKonto.getKontostand() > 0) {
+		while (gemeinschaftsKonto.getKontostand() > 9) {
 			Thread t1 = new Thread(andre);
 			Thread t2 = new Thread(mathias);
 			t1.start();

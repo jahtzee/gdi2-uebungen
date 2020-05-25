@@ -11,7 +11,7 @@ public class Konto {
 		return this.kontostand;
 	}
 
-	public int abbuchen(int betrag) {
+	public synchronized int abbuchen(int betrag) {
 		//synchronized (this) {
 			this.kontostand -= betrag;
 			return betrag;

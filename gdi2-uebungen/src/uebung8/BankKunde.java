@@ -16,9 +16,10 @@ public class BankKunde implements Runnable {
 
 	@Override
 	public void run() {
-		synchronized (k) {
+		//synchronized (k) {
+			if (k.getKontostand() >= 10)
 				this.bargeld += k.abbuchen(10);
-		}
+		//}
 	}
 
 	public String getName() {
