@@ -1,0 +1,73 @@
+/* Demo css-File
+ * weitere Details: https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html
+ */
+
+.root {
+  -fx-font: 22px Tahoma;
+  -fx-background-image: url("/fx/graphics/Campus.jpg"); 
+/*  -fx-background-size: cover; */
+}
+
+.label {
+  -fx-text-fill: blue;
+}
+
+.text {
+  -fx-text-fill: darkblue;
+}
+
+.button {
+  -fx-text-fill: white;
+  -fx-font-family: "Arial Narrow";
+  -fx-font-weight: bold;
+  -fx-background-color: linear-gradient(#7192b1, #2A5048);
+  -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.button:hover {
+  -fx-background-color: linear-gradient(#2A5048, #7192b1);
+}
+.pane {
+  -fx-background-color: cornflowerblue; 
+}
+
+.myButton {
+  -fx-background-color: linear-gradient(to bottom right, grey, black);
+  -fx-text-fill: yellow;
+  -fx-min-height: 100;
+  -fx-min-width: 100;
+}
+
+.blackField {
+  -fx-background-color: linear-gradient(to bottom right, grey, black);
+  -fx-text-fill: yellow;
+  -fx-min-height: 100;
+  -fx-min-width: 100;
+}
+.whiteField {
+  -fx-background-color: linear-gradient(to bottom right, white, grey);
+  -fx-text-fill: yellow;
+  -fx-min-height: 100;
+  -fx-min-width: 100;
+}
+
+.list-cell:even {
+ -fx-background-color: Lavender;
+}
+
+.list-cell:odd {
+ -fx-background-color: Ivory;
+}
+
+.list-cell:selected {
+ -fx-text-fill: Red;
+}
+
+.menu-bar .menu-button:focused {
+  -fx-text-fill: yellow;
+  -fx-background-color: gray;
+  -fx-underline: true;
+}
+.menu-item:focused {
+  -fx-background-color: gray;
+}
+
