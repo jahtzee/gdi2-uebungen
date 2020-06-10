@@ -38,7 +38,7 @@ public class EingabeFormular extends Application {
     g.add(box, 0, 2, 2, 1);
 
     Scene scene = new Scene(g);
-    scene.getStylesheets().add("/fx/css/style.css");
+    scene.getStylesheets().add("style.css");
     stage.setScene(scene);
     stage.setTitle("Formular");
     stage.show();

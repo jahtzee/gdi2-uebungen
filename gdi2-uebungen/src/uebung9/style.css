@@ -1,0 +1,28 @@
+.label-top {
+	-fx-text-fill: grey;
+	-fx-font-size: 24px;
+}
+
+.textbox {
+	-fx-text-fill: grey;
+	-fx-border-color: grey;
+	-fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.label {
+	-fx-text-fill:grey;
+	-fx-border-color: grey;
+	-fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.combo-box {
+    -fx-border-insets: 5px;
+}
+
+.button {
+    -fx-border-insets: 5px;
+}
