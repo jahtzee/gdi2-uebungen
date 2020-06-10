@@ -8,6 +8,8 @@ public class Quiz {
 	String[] givenAnswers;
 	int questionAmount;
 	Scanner sc;
+	int quizProgress = 0;
+	String currentSelection = null;
 	
 	public Quiz(String path, int questionAmount) throws FileNotFoundException {
 		this.questionAmount = questionAmount;
@@ -46,11 +48,12 @@ public class Quiz {
 					+ "1.  " + (q.getAnswers()[0]) + "\r\n"
 					+ "2.  " + (q.getAnswers()[1]) + "\r\n"
 					+ "3.  " + (q.getAnswers()[2]) + "\r\n"
+					+ "4.  " + (q.getAnswers()[3]) + "\r\n"
 					+ "--------------------------------\r\n");
 			System.out.print("Meine Antwort: ");
 			givenAnswers[count-1] = sc.nextLine();
 			if (givenAnswers[count-1] != null) {
-				while (!(givenAnswers[count-1].equals("1")) && !(givenAnswers[count-1].equals("2")) && !(givenAnswers[count-1].equals("3"))) {
+				while ( !(givenAnswers[count-1].equals("1")) && !(givenAnswers[count-1].equals("2")) && !(givenAnswers[count-1].equals("3")) && !(givenAnswers[count-1].equals("4")) ) {
 					System.out.print("Meine Antwort: ");
 					givenAnswers[count - 1] = sc.nextLine();
 				} 
@@ -75,5 +78,38 @@ public class Quiz {
 		}
 		System.out.println("\r\nRichtige Antworten : " + points + "\r\n"
 				+ "Falsche Antworten : " + (this.questionAmount-points));
+	}
+	
+	public Question[] getQuestions() {
+		return this.questions;
+	}
+	
+	public String[] getGivenAnswers() {
+		return this.givenAnswers;
+	}
+	
+	public void setProgress(int i) {
+		this.quizProgress = i;
+	}
+	
+	public int getProgress() {
+		return this.quizProgress;
+	}
+	
+	public void setSelection(String s) {
+		this.currentSelection = s;
+	}
+	
+	public String getSelection() {
+		return this.currentSelection;
+	}
+	
+	public void registerCurrentSelectionToAnswers() {
+		this.givenAnswers[this.quizProgress] = this.currentSelection;
+		this.clearSelection();
+	}
+	
+	private void clearSelection() {
+		this.currentSelection = null;
 	}
 }

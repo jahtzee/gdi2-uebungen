@@ -20,8 +20,8 @@ public class Question {
 	public Question(String line) {
 		String[] data = line.split(";");
 		this.question = data[0];
-		this.answers = new String[] {data[1], data[2], data[3]};
-		this.correctAnswerNr = Integer.parseInt(data[4]);
+		this.answers = new String[] {data[1], data[2], data[3], data[4]};
+		this.correctAnswerNr = Integer.parseInt(data[5]);
 		this.id = lastId;
 		lastId++;
 	}

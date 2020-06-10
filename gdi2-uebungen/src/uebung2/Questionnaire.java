@@ -15,6 +15,15 @@ public class Questionnaire {
 		this.path = path;
 		this.questions = new Question[this.amount];
 	}
+	
+	public void recordQuestionFromGUI(Question q) {
+		for (int i = 0; i < questions.length; i++) {
+			if (questions[i] == null) {
+				questions[i] = q;
+				break;
+			}
+		}
+	}
 
 	public void recordQuestions() {
 		for (int i = 0; i < this.amount; i++) {
@@ -58,5 +67,18 @@ public class Questionnaire {
 		}
 		pWriter.flush();
 		pWriter.close();
+	}
+	
+	public boolean isQuestionnaireFull() {
+		int counter = 0;
+		for (Question q : this.questions) {
+			if (q != null) {
+				counter++;
+			}
+		}
+		if (counter >= this.amount) {
+			return true;
+		}
+		return false;
 	}
 }
