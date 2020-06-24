@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="225.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uebung12.CalcController">
+   <children>
+      <Label fx:id="expressionLabel" layoutX="21.0" layoutY="39.0" />
+      <Button fx:id="oneBtn" layoutX="21.0" layoutY="94.0" mnemonicParsing="false" onAction="#newNumberEntered" text="1" />
+      <Button fx:id="twoBtn" layoutX="53.0" layoutY="94.0" mnemonicParsing="false" onAction="#newNumberEntered" text="2" />
+      <Button fx:id="threeBtn" layoutX="86.0" layoutY="94.0" mnemonicParsing="false" onAction="#newNumberEntered" text="3" />
+      <Button fx:id="fourBtn" layoutX="21.0" layoutY="126.0" mnemonicParsing="false" onAction="#newNumberEntered" text="4" />
+      <Button fx:id="fiveBtn" layoutX="53.0" layoutY="126.0" mnemonicParsing="false" onAction="#newNumberEntered" text="5" />
+      <Button fx:id="sixBtn" layoutX="86.0" layoutY="126.0" mnemonicParsing="false" onAction="#newNumberEntered" text="6" />
+      <Button fx:id="sevenBtn" layoutX="21.0" layoutY="156.0" mnemonicParsing="false" onAction="#newNumberEntered" text="7" />
+      <Button fx:id="eightBtn" layoutX="53.0" layoutY="156.0" mnemonicParsing="false" onAction="#newNumberEntered" text="8" />
+      <Button fx:id="nineBtn" layoutX="86.0" layoutY="156.0" mnemonicParsing="false" onAction="#newNumberEntered" text="9" />
+      <Button fx:id="zeroBtn" layoutX="21.0" layoutY="186.0" mnemonicParsing="false" onAction="#newNumberEntered" text="0" />
+      <Button fx:id="plusBtn" layoutX="148.0" layoutY="106.0" mnemonicParsing="false" onAction="#newOperatorEntered" text="ADD" />
+      <Button fx:id="minusBtn" layoutX="196.0" layoutY="106.0" mnemonicParsing="false" onAction="#newOperatorEntered" text="SUB" />
+      <Button fx:id="multBtn" layoutX="148.0" layoutY="138.0" mnemonicParsing="false" onAction="#newOperatorEntered" text="MUL" />
+      <Button fx:id="divBtn" layoutX="196.0" layoutY="138.0" mnemonicParsing="false" onAction="#newOperatorEntered" text="DIV" />
+      <Button fx:id="evalBtn" layoutX="147.0" layoutY="174.0" mnemonicParsing="false" onAction="#evaluateExpression" text="EVAL" />
+      <Button fx:id="cBtn" layoutX="203.0" layoutY="174.0" mnemonicParsing="false" onAction="#initialize" text="C" />
+   </children>
+</AnchorPane>
