@@ -59,14 +59,14 @@ public class CalcController {
 
 	@FXML
 	private Button evalBtn;
-	
-    @FXML
-    private Button cBtn;
+
+	@FXML
+	private Button cBtn;
 
 	public void initialize() {
 		// Instantiate a new expression object
 		expression = new CalcExpression();
-		
+
 		// Clear the expressionLabel
 		expressionLabel.setText("");
 
@@ -82,7 +82,7 @@ public class CalcController {
 		// Disable the eval button. It must not be enabled while there is no valid
 		// expression yet
 		evalBtn.setDisable(true);
-		
+
 		// Enable number buttons, if disabled
 		if (oneBtn.isDisabled())
 			enableNumberButtons();
@@ -91,7 +91,7 @@ public class CalcController {
 	// Event Listener on evalBtn
 	@FXML
 	void evaluateExpression(ActionEvent event) {
-		//Set operand2 equal to the number buffer contents and clear the buffer
+		// Set operand2 equal to the number buffer contents and clear the buffer
 		expression.setOperand2();
 		resultValue = expression.evaluate();
 		refreshExpressionLabel();
@@ -115,19 +115,21 @@ public class CalcController {
 		disableOperatorButtons();
 		String operator = ((Button) event.getSource()).getText().toLowerCase();
 		expression.setOperator(operator);
-		//Set operand1 equal to the number buffer contents and clear the buffer
+		// Set operand1 equal to the number buffer contents and clear the buffer
 		expression.setOperand1();
 		refreshExpressionLabel();
 	}
-	
-	//Refresh the displayed expression in the expressionLabel
+
+	// Refresh the displayed expression in the expressionLabel
 	private void refreshExpressionLabel() {
 		if (!expression.isOperand1Set()) {
 			expressionLabel.setText("" + expression.getNumberBufferString());
 		} else if (!expression.isOperand2Set()) {
-			expressionLabel.setText(expression.getOperand1() + expression.getOperatorSymbol() + expression.getNumberBufferString());
+			expressionLabel.setText(
+					expression.getOperand1() + expression.getOperatorSymbol() + expression.getNumberBufferString());
 		} else {
-			expressionLabel.setText(expression.getOperand1() + expression.getOperatorSymbol() + expression.getOperand2() + "=" + resultValue);
+			expressionLabel.setText(expression.getOperand1() + expression.getOperatorSymbol() + expression.getOperand2()
+					+ "=" + resultValue);
 			disableAllButtons();
 		}
 	}
@@ -137,25 +139,25 @@ public class CalcController {
 			b.setDisable(false);
 		}
 	}
-	
+
 	private void disableOperatorButtons() {
 		for (Button b : operatorButtons) {
 			b.setDisable(true);
 		}
 	}
-	
+
 	private void disableNumberButtons() {
 		for (Button b : numberButtons) {
 			b.setDisable(true);
 		}
 	}
-	
+
 	private void enableNumberButtons() {
 		for (Button b : numberButtons) {
 			b.setDisable(false);
 		}
 	}
-	
+
 	private void disableAllButtons() {
 		disableOperatorButtons();
 		disableNumberButtons();
