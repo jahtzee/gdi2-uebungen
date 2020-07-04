@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="422.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uebung13.DateViewerController">
+   <children>
+      <ListView fx:id="listView" layoutX="20.0" layoutY="17.0" onMouseClicked="#listViewItemSelected" prefHeight="318.0" prefWidth="338.0" />
+      <DatePicker fx:id="datePicker" layoutX="102.0" layoutY="355.0" />
+   </children>
+</AnchorPane>
